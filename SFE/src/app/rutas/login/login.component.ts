@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+
+  MensajeSalida
+  usuarioLogin: any
+  mailUser;
+  passUser;
+  roles: any[] = [];
+
+
   constructor(  
     private _router: Router,
-   
+    private _authService: AuthService,
     ) { }
 
   ngOnInit() {
@@ -20,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   irHome(){
-
+this._authService.logueo(this.mailUser, this.passUser);
     // this._loginService.logueo(this.mailUser, this.passUser).subscribe(
     //   results => {
     //     this.usuarioLogin  = results;

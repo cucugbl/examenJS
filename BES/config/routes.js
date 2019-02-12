@@ -24,7 +24,7 @@ module.exports.routes = {
   'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol', //agregar roles con id
   'POST /Usuario/crearUsuarioPaciente': 'UsuarioController.agregarPaciente',
   'POST /Paciente/crearPacienteMedicamento': 'PacienteController.agregarMedicamentos',
-
+  'POST /Usuario/login': 'UsuarioController.login',
 
 
 

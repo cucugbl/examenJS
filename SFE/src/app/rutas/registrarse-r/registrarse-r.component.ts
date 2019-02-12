@@ -40,12 +40,13 @@ export class RegistrarseRComponent implements OnInit {
         const url = [''];
         this._router.navigate(url);
         alert('usuario registrado')
+        this._router.navigate(['/login']);
         //alert(`usuario creado: Hola ${usuario.nombre}`)
       }, (error) => { console.log("Error:", error); }
     );
     // this._userService.agregarUsuario(usuario);
 
-     this._router.navigate(['/login']);
+     
   }
 
   irLoginCancel() {
