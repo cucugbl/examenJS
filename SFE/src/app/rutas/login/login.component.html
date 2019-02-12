@@ -1,0 +1,52 @@
+<br>
+<div class="p-grid">
+  <div class="p-md-6 p-lg-4"></div>
+  <div class="p-md-6 p-lg-4">
+    <br>
+    <label style="font-size:25px">{{MensajeSalida}}</label>
+  </div>
+  <div class="p-md-6 p-lg-4"></div>
+</div>
+<br>
+<div class="p-grid">
+  <div class="p-md-6 p-lg-4"></div>
+  <div class="p-md-6 p-lg-4">
+    <br>
+    <label style="font-size:25px">LOGIN</label>
+  </div>
+  <div class="p-md-6 p-lg-4"></div>
+</div>
+
+<div class="p-grid">
+  <div class="p-md-6 p-lg-4"></div>
+  <div class="p-md-6 p-lg-4">
+    <br>
+    <span class="ui-float-label">
+      <input id="correo" type="email" size="32" [(ngModel)]="mailUser" name="mailUser" pInputText>
+      <label for="correo">Correo</label>
+    </span>
+    <br>
+    <span class="ui-float-label">
+      <input id="pass" type="password" size="32" [(ngModel)]="passUser" name="passUser" pInputText>
+      <label for="pass">Contraseña</label>
+    </span>
+  </div>
+  <div class="p-md-6 p-lg-4"></div>
+</div>
+
+<div class="p-grid">
+  <div class="p-md-6 p-lg-4"></div>
+  <div class="p-md-6 p-lg-4">
+    <br>
+    <div class="p-grid">
+      <div class="p-md-6 p-lg-4">
+        <button pButton type="button" label="Ingresar" class="ui-button-rounded" (click)="irHome()"></button>
+      </div>
+      <div class="p-md-6 p-lg-4">
+        <button pButton type="button" label="Registrarse" class="ui-button-rounded ui-button-secondary" (click)="irRegistro()"></button>
+      </div>
+      <div class="p-md-6 p-lg-4"></div>
+    </div>
+  </div>
+  <div class="p-md-6 p-lg-4"></div>
+</div>
