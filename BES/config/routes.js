@@ -21,9 +21,10 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
-  'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol', //agregar roles con id
-  'POST /Usuario/crearUsuarioPaciente': 'UsuarioController.agregarPaciente',
-  'POST /Paciente/crearPacienteMedicamento': 'PacienteController.agregarMedicamentos',
+  'POST /Usuario/agregarRol': 'UsuarioController.agregarRol',//agregar roles con id
+  'POST /Usuario/eliminarRol': 'UsuarioController.eliminarRol', 
+  'POST /Usuario/agregarPaciente': 'UsuarioController.agregarPaciente',
+  'POST /Paciente/agregarMedicamentos': 'PacienteController.agregarMedicamentos',
   'POST /Usuario/login': 'UsuarioController.login',
 
 

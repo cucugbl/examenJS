@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
-
+import { Usuario } from 'src/app/interfaces/Usuario';
+import { Rol } from 'src/app/interfaces/Rol';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,47 +12,40 @@ export class LoginComponent implements OnInit {
 
 
   MensajeSalida
-  usuarioLogin: any
+  
   mailUser;
   passUser;
   roles: any[] = [];
 
+  usuarioLogueado:Usuario;
+  rolLogueado:Rol;
 
-  constructor(  
+  constructor(
     private _router: Router,
     private _authService: AuthService,
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
-  irRegistro(){
+  irRegistro() {
     this._router.navigate(['/registrarse']);
   }
 
-  irHome(){
-this._authService.logueo(this.mailUser, this.passUser);
-    // this._loginService.logueo(this.mailUser, this.passUser).subscribe(
-    //   results => {
-    //     this.usuarioLogin  = results;
-    //     if(this.usuarioLogin  == ''){
-    //       this.MensajeSalida = 'Credenciales incorrectas'
-    //     }else{
-    //       if(this.usuarioLogin.correo_usuario === this.mailUser && this.usuarioLogin.password_usuario === this.passUser) {
-    //         var valor = this.usuarioLogin.rolfk.map(rol => rol.nombre_rol)
-    //         for (let key in valor) {
-    //           if (valor[key] === 'usuario') {
-    //             VariablesGlobales.isUser = true;
-    //           } else {
-    //             VariablesGlobales.isAdministrator = true;
-    //           }
-    //         }
-    //         VariablesGlobales.idUser = this.usuarioLogin.id;
-    //         console.log(VariablesGlobales.idUser)
-    //         this._router.navigate(['/home']);
-    //       }
-    //     }
-    //   }
-    // )
+  irHome() {
+    const respuestaLogin$ = this._authService.logueo(this.mailUser, this.passUser);
+    respuestaLogin$.subscribe(
+      (usuario: Usuario) => {
+       // console.log(usuario);
+        this._router.navigate(['/home']);
+       // this.usuarioLogueado=usuario;
+      },
+      (error) => {
+       // console.error(error);
+        alert('usuario y contrasena no coinciden')
+        this._router.navigate(['/login']);
+      }
+    );
+
   }
 
 }

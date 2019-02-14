@@ -1,0 +1,96 @@
+<h1>Actualizar Usuario</h1>
+<br>
+<div class="ui-g ui-fluid" *ngIf="bool">
+  <div class="ui-lg-2"></div>
+  <div class="ui-lg-8 borde">
+    <span>
+      <div class="ui-g ui-fluid ">
+        <div class="ui-lg-4">
+         
+        </div>
+        <div class="ui-lg-4">
+          <h6>Este Usuario ya tiene ese rol </h6>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div class="ui-lg-2"></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <div *ngIf="usuarioAactualizar">
+
+      <app-formulario-usuario [usuario]="usuarioAactualizar" [nombreBoton]="'Actualizar'"
+        (formularioValido)="actualizarUsuario($event)">
+      </app-formulario-usuario>
+
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h5>Administrar Roles</h5>
+
+
+
+    <p-table [value]="rolesUsuario">
+      <ng-template pTemplate="header">
+        <!-- tr -> table row  -->
+        <tr>
+          <!-- th -> table header  usuarioAactualizar.nombre_usuario -->
+          <th> Roles </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rol>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col-md-8">
+                {{rol.nombre_rol}}
+              </div>
+              <div class="col-md-2">
+                <button pButton type="button" icon="pi pi-trash" class="ui-button-rounded ui-button-danger"
+                  (click)="eliminarRol(rol)"></button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+
+
+
+  </div>
+  <div class="col-md-3">
+    <h5>Roles disponibles</h5>
+    <div>
+      <br>
+      <select id="selectRol">
+        <option value={{r.id}} *ngFor="let r of rolesTotales">{{r.nombre_rol}}</option>
+
+        <!--<option value="rol" disabled="true">Roles</option>
+        <option value="usuario">USUARIO</option>
+        <option value="administrador">ADMINISTRADOR</option>
+        -->
+        
+      </select>
+      
+      
+    </div>
+    
+    <div>
+      <br>
+      <div class="ui-g ui-fluid">
+        <div class="ui-md-2"></div>
+        <div class="ui-md-8">
+          <button pButton type="button" label="Agregar Rol" (click)="agregarRol()"></button>
+        </div>
+        <div class="ui-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

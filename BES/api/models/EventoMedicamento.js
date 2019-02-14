@@ -15,11 +15,13 @@ module.exports = {
 
     //Relacion con la tabla evento
     eventofk: {
-      model: 'evento'
+      model: 'evento',
+      
     },
     //Relacion con la tabla medicamento
     medicamentofk: {
-      model: 'medicamento'
+      model: 'medicamento',
+      
     },
     
     //Relation tabla facturadetalle

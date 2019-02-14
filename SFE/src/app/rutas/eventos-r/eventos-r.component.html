@@ -1,0 +1,32 @@
+<h3>Eventos</h3>
+
+<div class="ui-g-12 ui-lg-10">
+  <p-table [value]="eventos">
+    <ng-template pTemplate="header">
+      <!-- tr -> table row  -->
+      <tr>
+        <!-- th -> table header  -->
+        <th> Nombre Evento</th>
+        <th> Fecha Evento</th>
+        <th> Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-evento>
+      <tr>
+        <td> {{evento.nombre_evento}}</td>
+        <td>{{evento.fecha_evento}}</td>
+        <td>
+
+          
+
+
+          <a [routerLink]="['/home','ver-evento',evento.id]">
+            <button pButton type="button" icon="pi pi-info" class="ui-button-rounded ui-button-rounded  "
+              label="Ver"></button>
+          </a>
+
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

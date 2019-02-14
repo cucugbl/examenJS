@@ -1,0 +1,35 @@
+<!-- header 1-6 Titulos  -->
+<h1>Home</h1>
+<!-- ul -> unordered list-->
+<!-- ol -> ordered list-->
+<ul>
+  <!-- li -> list item -->
+  <li>
+    <!-- a -> anchor -> ancla -->
+    <a routerLink="/login">Login</a>
+  </li>
+  <li>
+    <!-- a -> anchor -> ancla -->
+    <a routerLink="/registrarse">Registrarse</a>
+  </li>
+
+  <li>
+    <a routerLink="/home">Home</a>
+    <!-- EMPIEZA-->
+    <ol>
+      <li>
+        <a routerLink="/home/administrar-usuarios">Administrar usuarios</a>
+      </li>
+      <li>
+        <a routerLink="/home/eventos">Eventos</a>
+      </li>
+
+    </ol>
+    <!-- Terminando-->
+  </li>
+
+
+</ul>
+
+
+<router-outlet></router-outlet>

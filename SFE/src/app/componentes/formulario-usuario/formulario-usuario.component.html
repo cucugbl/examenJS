@@ -1,0 +1,41 @@
+<form #formularioActualizarUsuario="ngForm" novalidate (submit)="emitirFormularioValido(formularioActualizarUsuario)">
+
+  <div>
+    <span class="ui-float-label">
+      <input id="nombre" type="text" size="30" pInputText required type="text" name="nombre"
+        [(ngModel)]="usuario.nombre_usuario" #inputNombre="ngModel">
+      <label for="nombre">Nombre Usuario</label>
+
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+      <input id="username" name="username" size="30" pInputText type="email" [(ngModel)]="usuario.correo_usuario"
+        #inputNombre="ngModel">
+      <label for="username">Correo</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+      <input id="password" name="password" size="30" pInputText type="password" [(ngModel)]="usuario.password_usuario"
+        #inputNombre="ngModel">
+      <label for="password">Password</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+      <input id="fecha" name="fecha" type="date" size="30" pInputText [(ngModel)]="usuario.fecha_nacimiento_usuario"
+        #inputNombre="ngModel">
+      <label for="fecha">Fecha de nacimiento</label>
+    </span>
+  </div>
+  <br>
+  <button pButton type="submit" label={{nombreBoton}} [disabled]="formularioActualizarUsuario.invalid">
+  </button>
+  <button pButton type="reset" class="ui-button-danger" label="Borrar Todo">
+  </button>
+
+</form>
