@@ -1,0 +1,35 @@
+<p>
+  Gestionar Facturas
+</p>
+<br>
+
+<p-table [value]="facturaCabecera">
+  <ng-template pTemplate="header">
+    <!-- tr -> table row  -->
+    <tr>
+      <!-- th -> table header  -->
+      <th> Nombre Cliente</th>
+      <th> Fecha </th>
+      <th> Total </th>
+      <th> Estado </th>
+      <th> Acciones</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-factura>
+    <tr>
+      <td> {{factura.nombre_factura}}</td>
+      <td>{{factura.fecha_factura}}</td>
+      <td>{{factura.total_factura}}</td>
+      <td>{{factura.estado_factura}}</td>
+      <td>
+
+
+        <a [routerLink]="['/home','gestion-detalle-factura',factura.id,eventoid]">
+          <button pButton type="button" icon="pi" class="ui-button-rounded ui-button-rounded" label="Gestion"></button>
+        </a>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

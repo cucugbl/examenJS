@@ -1,0 +1,13 @@
+<h3>
+  actualizar medicamentos a paciente
+</h3>
+
+<br>
+
+<div *ngIf="medicamento">
+  <div>
+    <app-formulario-hijo-padre [medicamento]="medicamento" [nombreBoton]="'Actualizar'"
+      (formularioValido)="actualizarMedicamento($event)">
+    </app-formulario-hijo-padre>
+  </div>
+</div>

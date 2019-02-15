@@ -1,0 +1,64 @@
+<form #formularioCrearPadre="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearPadre)">
+
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="nombre" required type="text" name="nombre"
+        [(ngModel)]="pacienteObtenido.nombre_paciente" #inputNombre="ngModel">
+
+      <label for="nombre">Nombre Paciente</label>
+    </span>
+  </div>
+
+  <br>
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="apellido" required type="text" name="apellido"
+        [(ngModel)]="pacienteObtenido.apellido_paciente" #inputNombre="ngModel">
+
+      <label for="apellido">apellido paciente</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="fecha" required type="text" name="fecha"
+        [(ngModel)]="pacienteObtenido.fecha_naciemiento_paciente" #inputNombre="ngModel">
+
+      <label for="fecha">fecha nacimiento paciente</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="hijos" required type="text" name="hijos"
+        [(ngModel)]="pacienteObtenido.hijos_paciente" #inputNombre="ngModel">
+
+      <label for="hijos">hijos paciente</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="seguro" required type="text" name="seguro"
+        [(ngModel)]="pacienteObtenido.seguro_paciente" #inputNombre="ngModel">
+
+      <label for="seguro">seguro paciente</label>
+    </span>
+  </div>
+
+
+
+  <button type="submit" label={{nombreBoton}} pButton [disabled]="formularioCrearPadre.invalid">
+
+  </button>
+  <button pButton type="reset" class="ui-button-danger" label="Borrar Todo">
+    </button>
+</form>

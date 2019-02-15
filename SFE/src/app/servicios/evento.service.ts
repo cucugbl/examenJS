@@ -4,16 +4,19 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Evento } from '../interfaces/Evento';
 import { Medicamento } from '../interfaces/Medicamento';
+import { Eventomedicamento } from '../interfaces/Eventomedicamento';
+import { EventoMedicamentoAGUARDAR } from '../interfaces/EventoMedicamentoAGUARDAR';
 @Injectable({
   providedIn: 'root'
 })
 export class EventoService {
   nombreModelo = '/Evento';
   nombreModeloMedicamento = '/Medicamento';
-  sailsurl='http://localhost:1337';
+  nombremodeloEventoMedicamento = '/EventoMedicamento';
+  sailsurl = 'http://localhost:1337';
   constructor(private readonly _httpClient: HttpClient) { }
 
- findAll(): Observable<Evento[]> {
+  findAll(): Observable<Evento[]> {
     // OBSERVABLE
     const eventos$ = this._httpClient
       .get(this.sailsurl + this.nombreModelo)
@@ -37,5 +40,23 @@ export class EventoService {
       .pipe(map(m => <Medicamento[]>m)); // Castear
 
     return medicamentos$;
+  }
+  deleteByIdMedicamento(id: number | string): Observable<Medicamento> {
+    const medicamento$ = this._httpClient
+      .delete(this.sailsurl + this.nombreModeloMedicamento + '/' + id)
+      .pipe(map(m => <Medicamento>m)); // Castear
+
+    return medicamento$
+  }
+
+
+  crearEventoMedicamento(em: EventoMedicamentoAGUARDAR): Observable<Eventomedicamento> {
+
+    return this._httpClient.post(this.sailsurl + this.nombremodeloEventoMedicamento, em)
+      .pipe(
+        map(
+          respuesta => <Eventomedicamento>respuesta
+        )
+      );
   }
 }

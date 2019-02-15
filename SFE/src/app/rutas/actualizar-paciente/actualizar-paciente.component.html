@@ -1,0 +1,7 @@
+<div>
+  <div *ngIf="paciente">
+    <app-formulario-padre-hijo [paciente]="paciente" [nombreBoton]="'Actualizar'"
+      (formularioValido)="actualizar($event)">
+    </app-formulario-padre-hijo>
+  </div>
+</div>

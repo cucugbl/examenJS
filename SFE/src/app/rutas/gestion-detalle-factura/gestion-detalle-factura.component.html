@@ -1,0 +1,46 @@
+<p>
+  Detalle
+</p>
+
+<div>
+  <div *ngIf=(eventoObt)>
+    <a [routerLink]="['/home','anadir-item',facturaCabecera.id,eventoObt.id]">
+      <button pButton type="button" icon="pi pi" class="ui-button-rounded" label="+  Añadir item"></button>
+    </a>
+  </div>
+</div>
+<div>
+
+  <p-table [value]="facturaDetalle">
+    <ng-template pTemplate="header">
+      <!-- tr -> table row  -->
+      <tr>
+        <!-- th -> table header  -->
+        <th> Item</th>
+        <th> Cantidad </th>
+        <th> Precio </th>
+        <th> Total </th>
+        <th> Acciones</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-factura>
+      <tr>
+        <td> {{factura.item}}</td>
+        <td>{{factura.cantidad}}</td>
+        <td>{{factura.precio}}</td>
+        <td>{{factura.total}}</td>
+        <td>
+
+
+          <a [routerLink]="['/home']">
+            <button pButton type="button" icon="pi pi-trash" class="ui-button-rounded ui-button-danger"
+              label="Eliminar"></button>
+          </a>
+
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>

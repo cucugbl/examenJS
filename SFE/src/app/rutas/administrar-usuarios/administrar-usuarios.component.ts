@@ -30,7 +30,7 @@ export class AdministrarUsuariosComponent implements OnInit {
     this._usuarioServicio.delete(+usurioE.id).subscribe(
 
       (usuarioEliminado: Usuario) => {
-        console.log('Se elimino:', usuarioEliminado);
+      //  console.log('Se elimino:', usuarioEliminado);
 
         //eliminando del arreglo
         const indice = this.usuarios

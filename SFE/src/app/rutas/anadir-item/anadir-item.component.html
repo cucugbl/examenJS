@@ -1,0 +1,54 @@
+<div class=row>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+
+    <h3>
+      Añadir Item
+    </h3>
+    
+      <div>
+        <br>
+        <label for="selectMedicamentoEnevento">Seleccione Hijo: </label>
+        <select onchange="" id="selectMedicamentoEnevento">
+          <option value={{m.id}} *ngFor="let m of medicamentosamostrar">{{m.nombre_medicamento}}</option>
+        </select>
+         <button pButton type="button" icon="pi pi-refresh" class="ui-button-rounded ui-button-warning"
+          (click)="hijoSeleccionadoComboBox()"></button>
+      </div>
+    
+    <br>
+    <div>
+      <span class="ui-float-label">
+
+        <input size="30" pInputText id="precio" required type="text" name="precio"
+          [(ngModel)]="eventoMedicamentoSeleccionado.precio_base" #inputNombre="ngModel">
+
+        <label for="precio">Precio Acordado</label>
+      </span>
+    </div>
+    <br>
+    <div>
+        <span class="ui-float-label">
+  
+          <input size="30" pInputText id="precio" required type="text" name="precio"
+            [(ngModel)]="facturadetalle.cantidad" #inputNombre="ngModel">
+  
+          <label for="precio">Cantidad</label>
+        </span>
+      </div>
+    <div>
+      <br>
+      <div class="ui-g ui-fluid">
+        <div class="ui-md-2"></div>
+        <div class="ui-md-8">
+          <button pButton type="button" label="Añadir Item" (click)="anadirItem()"></button>
+        </div>
+        <div class="ui-md-1"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

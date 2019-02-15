@@ -1,5 +1,6 @@
 <h3>Eventos</h3>
 
+
 <div class="ui-g-12 ui-lg-10">
   <p-table [value]="eventos">
     <ng-template pTemplate="header">
@@ -24,7 +25,15 @@
             <button pButton type="button" icon="pi pi-info" class="ui-button-rounded ui-button-rounded  "
               label="Ver"></button>
           </a>
-
+          <a [routerLink]="['/home','anadir-medicamentos',evento.id]">
+            <button pButton type="button" icon="pi" class="ui-button-rounded ui-button-danger "
+              label="Agregar hijos"></button>
+          </a>
+          <a [routerLink]="['/home','gestion-facturas',evento.id]">
+            <button pButton type="button" icon="pi" class="ui-button-rounded ui-button-rounded"
+              label="Gestion Facturas"></button>
+          </a>
+          
         </td>
       </tr>
     </ng-template>

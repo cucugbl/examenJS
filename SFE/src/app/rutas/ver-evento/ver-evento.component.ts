@@ -28,7 +28,7 @@ export class VerEventoComponent implements OnInit {
               (eventoObtenido: Evento) => {
 
                 this.eventoMedicamento = eventoObtenido.eventomedicamentofk;
-                console.log('Se obtubo:', this.eventoMedicamento );
+                //console.log('Se obtubo:', this.eventoMedicamento );
                 //console.log('Se obtubo:', this.usuarioAactualizar.correo_usuario);
 
               },

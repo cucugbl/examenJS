@@ -20,6 +20,20 @@ import { FormularioUsuarioComponent } from './componentes/formulario-usuario/for
 import { EventosRComponent } from './rutas/eventos-r/eventos-r.component';
 import { VerEventoComponent } from './rutas/ver-evento/ver-evento.component';
 import { MedicamentosFormularioComponent } from './componentes/medicamentos-formulario/medicamentos-formulario.component';
+import { AnadirMedicamentosComponent } from './rutas/anadir-medicamentos/anadir-medicamentos.component';
+import { PadresHijosComponent } from './rutas/padres-hijos/padres-hijos.component';
+import { FormularioPadreHijoComponent } from './componentes/formulario-padre-hijo/formulario-padre-hijo.component';
+import { AnadirPacienteComponent } from './rutas/anadir-paciente/anadir-paciente.component';
+import { ActualizarPacienteComponent } from './rutas/actualizar-paciente/actualizar-paciente.component';
+import { AnadirMedicamentosAPacienteComponent } from './rutas/anadir-medicamentos-a-paciente/anadir-medicamentos-a-paciente.component';
+import { FormularioHijoPadreComponent } from './componentes/formulario-hijo-padre/formulario-hijo-padre.component';
+import { ActualizarMedicamentosAPacienteComponent } from './rutas/actualizar-medicamentos-a-paciente/actualizar-medicamentos-a-paciente.component';
+import { GestionFacturasComponent } from './rutas/gestion-facturas/gestion-facturas.component';
+import { GestionDetalleFacturaComponent } from './rutas/gestion-detalle-factura/gestion-detalle-factura.component';
+import { AnadirItemComponent } from './rutas/anadir-item/anadir-item.component';
+import { ListaDeFacturasComponent } from './rutas/lista-de-facturas/lista-de-facturas.component';
+import { VerDetalleFacturaComponent } from './rutas/ver-detalle-factura/ver-detalle-factura.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +46,20 @@ import { MedicamentosFormularioComponent } from './componentes/medicamentos-form
     FormularioUsuarioComponent,
     EventosRComponent,
     VerEventoComponent,
-    MedicamentosFormularioComponent
+    MedicamentosFormularioComponent,
+    AnadirMedicamentosComponent,
+    PadresHijosComponent,
+    FormularioPadreHijoComponent,
+    AnadirPacienteComponent,
+    ActualizarPacienteComponent,
+    AnadirMedicamentosAPacienteComponent,
+    FormularioHijoPadreComponent,
+    ActualizarMedicamentosAPacienteComponent,
+    GestionFacturasComponent,
+    GestionDetalleFacturaComponent,
+    AnadirItemComponent,
+    ListaDeFacturasComponent,
+    VerDetalleFacturaComponent
   ],
   imports: [
     BrowserModule, ButtonModule,CalendarModule, PasswordModule,

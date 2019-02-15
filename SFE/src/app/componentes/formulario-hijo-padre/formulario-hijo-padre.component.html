@@ -1,0 +1,74 @@
+<form #formularioCrearHijo="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearHijo)">
+
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="nombre" required type="text" name="nombre"
+        [(ngModel)]="medicamentoObtenido.nombre_medicamento" #inputNombre="ngModel">
+
+      <label for="nombre">Nombre Medicamento</label>
+    </span>
+  </div>
+
+  <br>
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="gramos" required type="text" name="gramos"
+        [(ngModel)]="medicamentoObtenido.gramos_ingerir" #inputNombre="ngModel">
+
+      <label for="gramos">gramos a ingerir</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="composicion" required type="text" name="composicion"
+        [(ngModel)]="medicamentoObtenido.composicion" #inputNombre="ngModel">
+
+      <label for="composicion">composicion</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="usadopara" required type="text" name="usadopara"
+        [(ngModel)]="medicamentoObtenido.usado_para" #inputNombre="ngModel">
+
+      <label for="usadopara">usado para</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="caducidad" required type="text" name="caducidad"
+        [(ngModel)]="medicamentoObtenido.fecha_caducidad" #inputNombre="ngModel">
+
+      <label for="caducidad">fecha caducidad</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="pastillas" required type="text" name="pastillas"
+        [(ngModel)]="medicamentoObtenido.numero_pastillas" #inputNombre="ngModel">
+
+      <label for="pastillas">numero de pastillas</label>
+    </span>
+  </div>
+
+
+
+  <button type="submit" label={{nombreBoton}} pButton [disabled]="formularioCrearHijo.invalid">
+
+  </button>
+  <button pButton type="reset" class="ui-button-danger" label="Borrar Todo">
+  </button>
+</form>

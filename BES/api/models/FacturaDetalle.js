@@ -8,6 +8,10 @@
 module.exports = {
 
   attributes: {
+    item: {
+      type: 'string',
+      //required: true
+    },
 
     cantidad: {
       type: 'string',

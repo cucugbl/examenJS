@@ -1,0 +1,114 @@
+<h3>Evento</h3>
+
+
+<div class="ui-g ui-fluid" *ngIf="bool">
+  <div class="ui-lg-2"></div>
+  <div class="ui-lg-8 borde">
+    <span>
+      <div class="ui-g ui-fluid ">
+        <div class="ui-lg-4">
+         
+        </div>
+        <div class="ui-lg-4">
+          <h6>Ya esta registrado ese hijo </h6>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div class="ui-lg-2"></div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-4">
+
+
+
+    <p-table>
+      <ng-template pTemplate="header">
+
+        <tr>
+
+          <th>
+            <h4>{{eventoObtenido.nombre_evento}}</h4>
+          </th>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <h4>Fecha del evento: {{eventoObtenido.fecha_evento}}</h4>
+
+  </div>
+
+
+
+
+
+
+  <div class="col-md-4">
+    <h5>Hijos en evento</h5>
+
+
+
+    <p-table [value]="medicamentosamostrar">
+      <ng-template pTemplate="header">
+        <!-- tr -> table row  -->
+        <tr>
+          <!-- th -> table header  usuarioAactualizar.nombre_usuario -->
+          <th> Hijos o Medicamentos</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-m>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col-md-8">
+                {{m.nombre_medicamento}}
+              </div>
+              <div class="col-md-2">
+                <button pButton type="button" icon="pi pi-trash" class="ui-button-rounded ui-button-danger"
+                  (click)="eliminarMedicamento(m)"></button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+
+  </div>
+  <div class="col-md-4">
+
+    <p>Materias disponibles para el usuario logueado</p>
+    <div>
+      <br>
+      <select id="selectMateria">
+        <option value={{m.id}} *ngFor="let m of medicamentos">{{m.nombre_medicamento}}</option>
+
+      </select>
+    </div>
+    <br>
+    <div>
+      <span class="ui-float-label">
+  
+        <input size="30" pInputText id="precio" required type="text" name="precio"
+          [(ngModel)]="eventoMedicamentoAAgregar.precio_base" #inputNombre="ngModel">
+  
+        <label for="precio">Precio Base</label>
+      </span>
+    </div>
+
+    <div>
+      <br>
+      <div class="ui-g ui-fluid">
+        <div class="ui-md-2"></div>
+        <div class="ui-md-8">
+          <button pButton type="button" label="Agregar hijo a evento" (click)="agregarHijoaEvento()"></button>
+        </div>
+        <div class="ui-md-1"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

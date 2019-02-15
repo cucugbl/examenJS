@@ -1,0 +1,35 @@
+<h3>Lista de facturas por cliente</h3>
+
+
+
+
+<p-table [value]="facturasInicialmenteObtenidas">
+  <ng-template pTemplate="header">
+    <!-- tr -> table row  -->
+    <tr>
+      <!-- th -> table header  -->
+      <th> Nombre de quien se emitio la factura</th>
+      <th> Fecha</th>
+      <th> Toltal</th>
+      <th> Tipo de pago</th>
+      <th> Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-factura>
+    <tr>
+      <td> {{factura.nombre_factura}}</td>
+      <td> {{factura.fecha_factura}}</td>
+      <td> {{factura.total_factura}}</td>
+      <td> {{factura.tipo_pago_factura}}</td>
+
+      <td>
+        <a [routerLink]="['/home','ver-detalle-factura',factura.id]">
+          <button pButton type="button" icon="pi pi-info" class="ui-button-rounded ui-button-warning"
+            label="Ver Detalle"></button>
+        </a>
+       
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
