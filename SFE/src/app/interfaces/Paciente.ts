@@ -3,7 +3,7 @@ import { Medicamento } from './Medicamento';
 
 export class Paciente{
     
-    usuariofk?: Usuario[];
+    usuariofk?: Usuario|string;
     medicamentofk?: Medicamento[];
     createdAt?: number;
     updatedAt?: number;

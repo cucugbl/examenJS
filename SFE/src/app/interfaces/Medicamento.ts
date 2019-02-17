@@ -8,6 +8,6 @@ export interface Medicamento {
       usado_para?: string;
       fecha_caducidad?: string;
       numero_pastillas?: string;
-      pacientefk?: Paciente[];
+      pacientefk?: Paciente|string;
       eventomedicamentofk?: Eventomedicamento[];
 }

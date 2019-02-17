@@ -16,7 +16,7 @@ export interface Facturacabecera {
         facturadetallefk?: Facturadetalle[];
         eventofk?: Evento;
         //Relacion con la tabla evento
-        usuariofk?: Usuario;
+        usuariofk?: Usuario|string;
 
 
 

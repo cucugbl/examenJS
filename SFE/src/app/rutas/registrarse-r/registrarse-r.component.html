@@ -1,53 +1,22 @@
-<br>
-<div class="p-grid">
-  <div class="p-md-6 p-lg-4"></div>
-  <div class="p-md-6 p-lg-4">
-    <br>
-    <label style="font-size:25px">REGISTRO</label>
+<div class="row">
+    
+  <div class="col-md-4">
+      
+    <h3><br></h3>
   </div>
-  <div class="p-md-6 p-lg-4"></div>
-</div>
+  <div class="col-md-4">
+    <br>
+      <label style="font-size:25px">Regístrate aquí</label>
+    <div>
+      <app-formulario-usuario [usuario]="usuarioAcrear" [nombreBoton]="'Registrarse'"
+        (formularioValido)="registrarUsuario($event)">
+      </app-formulario-usuario>
+      <br>
+      <button pButton type="button" label="Cancelar" class="ui-button-rounded ui-button-warning"
+        (click)="irLoginCancel()"></button>
 
-<div class="p-grid">
-  <div class="p-md-6 p-lg-4"></div>
-  <div class="p-md-6 p-lg-4">
-    <br>
-    <span class="ui-float-label">
-      <input id="nombre" type="text" size="32" [(ngModel)]="nombreReg" name="nombre" pInputText>
-      <label for="nombre">Nombre</label>
-    </span>
-    <br>
-    <span class="ui-float-label">
-      <input id="correo" type="email" size="32" [(ngModel)]="correoReg" Validators.email  name="correo" pInputText>
-      <label for="correo">Correo</label>
-    </span>
-    <br>
-    <span class="ui-float-label">
-      <input id="pass" type="password" size="32" [(ngModel)]="passReg" name="pass" pInputText>
-      <label for="pass">Contraseña</label>
-    </span>
-    <br>
-    <span class="ui-float-label">
-      <input id="born" type="date" size="32" [(ngModel)]="fecha_nacimientoReg" name="fecha" pInputText>
-      <label for="born">Fecha nacimiento</label>
-    </span>
-  </div>
-  <div class="p-md-6 p-lg-4"></div>
-</div>
-
-<div class="p-grid">
-  <div class="p-md-6 p-lg-4"></div>
-  <div class="p-md-6 p-lg-4">
-    <br>
-    <div class="p-grid">
-      <div class="p-md-4 p-lg-4">
-        <button pButton type="button" label="Registrarse" class="ui-button-rounded" (click)="irLogin()"></button>
-      </div>
-      <div class="p-md-4 p-lg-4">
-        <button pButton type="button" label="Cancelar" class="ui-button-rounded ui-button-danger" (click)="irLoginCancel()"></button>
-      </div>
-      <div class="p-md-4 p-lg-4"></div>
+        <button pButton type="button" label="Ir a home sin registrarme  =>" [routerLink]="['/home']"
+            class="ui-button-rounded ui-button-warning"></button>
     </div>
   </div>
-  <div class="p-md-6 p-lg-4"></div>
 </div>

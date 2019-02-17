@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
 import { Rol } from 'src/app/interfaces/Rol';
@@ -9,8 +10,8 @@ import { Rol } from 'src/app/interfaces/Rol';
   providedIn: 'root'
 })
 export class AuthService {
-  usuarioLogueado: Usuario;
-  rolLogueado: Rol[];
+  usuarioLogueado: Usuario = {id:"1"};
+  rolesDeUsuarioLogueado: Rol[] = [{ id: "1" },{id:"2"}]
 
   constructor(private readonly _httpClient: HttpClient) { }
 
@@ -26,7 +27,7 @@ export class AuthService {
       (usuario: Usuario) => {
 
         this.usuarioLogueado = usuario;
-        this.rolLogueado = usuario.rolfk;
+        this.rolesDeUsuarioLogueado = usuario.rolfk;
         //console.log();
       },
       (error) => {
@@ -36,5 +37,22 @@ export class AuthService {
 
     return usuario$
   }
+
+  esAdministrador(): boolean {
+    
+   return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "1".valueOf());
+    
+  }
+
+  esUsuario(): boolean {
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "2".valueOf());
+  }
+  esCajero(): boolean {
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "3".valueOf());
+  }
+  esCliente(): boolean {
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "4".valueOf());
+  }
+
 
 }

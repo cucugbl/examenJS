@@ -1,9 +1,17 @@
 <form #formularioActualizarUsuario="ngForm" novalidate (submit)="emitirFormularioValido(formularioActualizarUsuario)">
 
+  <p *ngIf="formularioActualizarUsuario.invalid">
+
+      <ngb-alert [dismissible]="false">
+          <strong>Mensaje! </strong> <span>Algunos campos son invalidos</span>
+        </ngb-alert>
+       
+    
+  </p>
   <div>
     <span class="ui-float-label">
       <input id="nombre" type="text" size="30" pInputText required type="text" name="nombre"
-        [(ngModel)]="usuario.nombre_usuario" #inputNombre="ngModel">
+        [(ngModel)]="usuario.nombre_usuario" required #inputNombre="ngModel">
       <label for="nombre">Nombre Usuario</label>
 
     </span>
@@ -11,7 +19,7 @@
   <br>
   <div>
     <span class="ui-float-label">
-      <input id="username" name="username" size="30" pInputText type="email" [(ngModel)]="usuario.correo_usuario"
+      <input id="username" name="username" size="30" required pInputText type="email" [(ngModel)]="usuario.correo_usuario"
         #inputNombre="ngModel">
       <label for="username">Correo</label>
     </span>
@@ -19,17 +27,18 @@
   <br>
   <div>
     <span class="ui-float-label">
-      <input id="password" name="password" size="30" pInputText type="password" [(ngModel)]="usuario.password_usuario"
+      <input id="password" maxlength="16" minlength="2" name="password" size="30" required pInputText type="password" [(ngModel)]="usuario.password_usuario"
         #inputNombre="ngModel">
       <label for="password">Password</label>
     </span>
   </div>
   <br>
   <div>
-    <span class="ui-float-label">
-      <input id="fecha" name="fecha" type="date" size="30" pInputText [(ngModel)]="usuario.fecha_nacimiento_usuario"
-        #inputNombre="ngModel">
       <label for="fecha">Fecha de nacimiento</label>
+    <span class="ui-float-label">
+      <input id="fecha" name="fecha" type="date" size="30" required pInputText [(ngModel)]="usuario.fecha_nacimiento_usuario"
+        #inputNombre="ngModel">
+
     </span>
   </div>
   <br>

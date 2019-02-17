@@ -25,6 +25,7 @@ export class AnadirItemComponent implements OnInit {
   facturadetalle:FacturadetalleAGUARDAR={};
   nombreItem:string;
   facturaCabereraObtenida:Facturacabecera;
+  pruebaSrt="";
   constructor(private readonly _eventoServicio: EventoService,
     private readonly _route: ActivatedRoute, private readonly _routeN: Router,    private readonly _facturaService:FacturaService) { }
 
@@ -112,7 +113,8 @@ export class AnadirItemComponent implements OnInit {
   }
 
 
-  hijoSeleccionadoComboBox(){
+  hijoSeleccionadoComboBox(event:any){
+    
     const idMedicamento = (<HTMLInputElement>document.getElementById("selectMedicamentoEnevento")).value;
    // console.log(idMedicamento);
     const idevento:number=this.eventoObtenido.id;
@@ -134,6 +136,7 @@ export class AnadirItemComponent implements OnInit {
         }
       })
   }
+
   anadirItem(){
     this.facturadetalle.item=this.nombreItem;
     this.facturadetalle.precio=this.eventoMedicamentoSeleccionado.precio_base;

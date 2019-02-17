@@ -12,7 +12,7 @@ import { Medicamento } from 'src/app/interfaces/Medicamento';
 })
 export class ActualizarMedicamentosAPacienteComponent implements OnInit {
   medicamento: Medicamento;
-  pacientes: Paciente[] = [];
+  pacientes: Paciente = {};
   arregloIdPacientes: number[];
   constructor(
     private readonly _PacientesService: PacientesMedicamentosService,
@@ -33,7 +33,7 @@ export class ActualizarMedicamentosAPacienteComponent implements OnInit {
 
               (medicamentoObt: Medicamento) => {
                 this.medicamento = medicamentoObt;
-                this.pacientes = medicamentoObt.pacientefk;
+                //this.pacientes = medicamentoObt.pacientefk;
                 
 
               },

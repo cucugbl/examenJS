@@ -9,6 +9,9 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class AdministrarUsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
+  usuariosAux:Usuario[] = [];
+  busqueda;
+  usuariosEncontrados:Usuario[]=[];
 
   constructor(private readonly _usuarioServicio: UsuarioService) {
 
@@ -18,6 +21,7 @@ export class AdministrarUsuariosComponent implements OnInit {
     this._usuarioServicio.findAll().subscribe(
       (usuariosR: Usuario[]) => {
         this.usuarios = usuariosR;
+        this.usuariosAux=usuariosR;
       },
       (error) => {
         console.error('Error', error);
@@ -42,6 +46,19 @@ export class AdministrarUsuariosComponent implements OnInit {
       }
     );
 
+  }
+  buscarUsuariosEnToltales(){
+    if(this.busqueda){
+      this.usuarios=this.usuariosAux;
+      
+      
+      this.usuariosEncontrados=this.usuarios.filter(u=>u.nombre_usuario==this.busqueda);
+      this.usuarios.filter(u=>u.correo_usuario==this.busqueda).forEach((u)=>this.usuariosEncontrados.push(u));
+      this.usuarios=this.usuariosEncontrados;
+    }else{
+      this.usuarios=this.usuariosAux;
+
+    }
   }
 
 

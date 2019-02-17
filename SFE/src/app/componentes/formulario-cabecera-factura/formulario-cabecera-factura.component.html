@@ -1,0 +1,110 @@
+<h6>Crear Cabecera</h6>
+
+<form #formularioCrearCabecera="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearCabecera)">
+
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="nombre" required type="text" name="nombre"
+        [(ngModel)]="facturaCabeceraObtenida.nombre_factura" #inputNombre="ngModel">
+
+      <label for="nombre">Nombre factura</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="cedula" required type="text" name="cedula"
+        [(ngModel)]="facturaCabeceraObtenida.cedula_factura" #inputNombre="ngModel">
+
+      <label for="cedula">Cedula</label>
+    </span>
+  </div>
+
+  <br>
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="telefono" required type="text" name="telefono"
+        [(ngModel)]="facturaCabeceraObtenida.telefono_factura" #inputNombre="ngModel">
+
+      <label for="telefono">Telefono</label>
+    </span>
+  </div>
+
+  <br>
+
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="direccion" required type="text" name="direccion"
+        [(ngModel)]="facturaCabeceraObtenida.direccion_factura" #inputNombre="ngModel">
+
+      <label for="direccion">direccion</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="correo" required type="text" name="correo"
+        [(ngModel)]="facturaCabeceraObtenida.correo_factura" #inputNombre="ngModel">
+
+      <label for="correo">correo</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="fecha" required type="text" name="fecha"
+        [(ngModel)]="facturaCabeceraObtenida.fecha_factura" #inputNombre="ngModel">
+
+      <label for="fecha">fecha factura</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="total" required type="text" name="total"
+        [(ngModel)]="facturaCabeceraObtenida.total_factura" #inputNombre="ngModel">
+
+      <label for="total">total factura</label>
+    </span>
+  </div>
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="tipopago" required type="text" name="tipopago"
+        [(ngModel)]="facturaCabeceraObtenida.tipo_pago_factura" #inputNombre="ngModel">
+
+      <label for="tipopago">tipo de pago</label>
+    </span>
+  </div>
+
+  <br>
+  <div>
+    <span class="ui-float-label">
+
+      <input size="30" pInputText id="estado" required type="text" name="estado"
+        [(ngModel)]="facturaCabeceraObtenida.estado_factura" #inputNombre="ngModel">
+
+      <label for="estado">estado de pago a factura</label>
+    </span>
+  </div>
+
+  <button type="submit" label={{nombreBoton}} class="ui-button-success" pButton [disabled]="formularioCrearCabecera.invalid">
+
+  </button>
+  <button pButton type="reset" class="ui-button-danger" label="Borrar Todo">
+  </button>
+</form>

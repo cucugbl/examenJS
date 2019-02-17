@@ -11,22 +11,28 @@ module.exports = {
 
     nombre_usuario: {
       type: 'string',
-      required: true
+    //  required: true
     },
 
     correo_usuario: {
       type: 'string',
-      // isEmail: true
+      // isEmail: true,
+      //unique: true,
+       //required: true,
     },
 
     password_usuario: {
       type: 'string',
-      required: true
+      //required: true,
+      
+      //minLength:2,
+      //maxLength:16
+
     },
 
     fecha_nacimiento_usuario: {
       type: 'string',
-      required: true
+      //required: true
     },
     //Relacion con la tabla rol
     rolfk: {

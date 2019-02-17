@@ -1,5 +1,16 @@
 <h3>Lista de facturas por cliente</h3>
 
+<div class="row">
+  <button (click)="abrirFormulario()" pButton type="button" icon="pi" class="ui-button-rounded  "
+    label="Crear nueva cabecera"></button>
+</div>
+<div *ngIf="mostrarFormulario">
+  <app-formulario-cabecera-factura [cabeceraFacturaEnviada]="cabeceraFacturaEnviada" [nombreBoton]="'Crear'"
+    (formularioValido)="crearCabeceraFactura($event)">
+  </app-formulario-cabecera-factura>
+  <button (click)="cerrarFormulario()" pButton type="button" icon="pi" class="ui-button-warning"
+    label="Cancelar"></button>
+</div>
 
 
 
@@ -27,7 +38,7 @@
           <button pButton type="button" icon="pi pi-info" class="ui-button-rounded ui-button-warning"
             label="Ver Detalle"></button>
         </a>
-       
+
 
       </td>
     </tr>

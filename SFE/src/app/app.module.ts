@@ -33,7 +33,8 @@ import { GestionDetalleFacturaComponent } from './rutas/gestion-detalle-factura/
 import { AnadirItemComponent } from './rutas/anadir-item/anadir-item.component';
 import { ListaDeFacturasComponent } from './rutas/lista-de-facturas/lista-de-facturas.component';
 import { VerDetalleFacturaComponent } from './rutas/ver-detalle-factura/ver-detalle-factura.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormularioCabeceraFacturaComponent } from './componentes/formulario-cabecera-factura/formulario-cabecera-factura.component';
 
 @NgModule({
   declarations: [
@@ -59,12 +60,13 @@ import { VerDetalleFacturaComponent } from './rutas/ver-detalle-factura/ver-deta
     GestionDetalleFacturaComponent,
     AnadirItemComponent,
     ListaDeFacturasComponent,
-    VerDetalleFacturaComponent
+    VerDetalleFacturaComponent,
+    FormularioCabeceraFacturaComponent
   ],
   imports: [
     BrowserModule, ButtonModule,CalendarModule, PasswordModule,
     AppRoutingModule,FormsModule,InputTextModule,
-    HttpClientModule,AccordionModule,BrowserAnimationsModule,
+    HttpClientModule,AccordionModule,BrowserAnimationsModule,NgbModule,
     TableModule,
     PanelModule,
     BrowserAnimationsModule,

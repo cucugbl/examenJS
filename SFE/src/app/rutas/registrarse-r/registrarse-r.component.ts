@@ -13,6 +13,7 @@ export class RegistrarseRComponent implements OnInit {
   correoReg: string;
   passReg: string;
   fecha_nacimientoReg: string;
+  usuarioAcrear: Usuario = {};
   constructor(
     private _router: Router,
     private _userService: UsuarioService
@@ -33,7 +34,7 @@ export class RegistrarseRComponent implements OnInit {
 
 
     }
-    
+
 
     this._userService.registrarUsuario(usuario).subscribe(
       (usuario: Usuario) => {
@@ -46,9 +47,18 @@ export class RegistrarseRComponent implements OnInit {
     );
     // this._userService.agregarUsuario(usuario);
 
-     
-  }
 
+  }
+  registrarUsuario(usuarioRecibido: Usuario) {
+    this._userService.registrarUsuario(usuarioRecibido).subscribe(
+      (usuario: Usuario) => {
+        
+        alert('usuario registrado')
+        this._router.navigate(['/login']);
+        //alert(`usuario creado: Hola ${usuario.nombre}`)
+      }, (error) => { console.log("Error:", error); }
+    );
+  }
   irLoginCancel() {
     this._router.navigate(['/login']);
   }

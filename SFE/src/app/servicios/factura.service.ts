@@ -45,6 +45,10 @@ export class FacturaService {
     return this._httpClient.post(this.sailsurl+this.nombreModeloFD,facturadetalle).pipe(map(r => <Facturadetalle>r)); 
 
   }
+  createfacturaCabecera(facturaCabecera:Facturacabecera):Observable<Facturacabecera>{
+    return this._httpClient.post(this.sailsurl+this.nombreModeloFC,facturaCabecera).pipe(map(r => <Facturacabecera>r)); 
+
+  }
 
 
 }

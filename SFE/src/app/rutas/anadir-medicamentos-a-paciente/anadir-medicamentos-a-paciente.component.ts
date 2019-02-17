@@ -42,6 +42,7 @@ export class AnadirMedicamentosAPacienteComponent implements OnInit {
 
   crearMedicamento(medicamentoRecibido:Medicamento){
     const idPaciente=this.paciente.id
+    medicamentoRecibido.pacientefk=this.paciente.id+"";
 
     this._PacientesService.crearMedicamentoPaciente(medicamentoRecibido).subscribe(
       (medicamento: Medicamento) => {
