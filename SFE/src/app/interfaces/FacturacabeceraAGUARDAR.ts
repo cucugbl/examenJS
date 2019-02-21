@@ -2,7 +2,7 @@ import { Facturadetalle } from './Facturadetalle';
 import { Evento } from './Evento';
 import { Usuario } from './usuario';
 
-export interface Facturacabecera {
+export interface FacturacabeceraAGUARDAR {
         id?: string;
         nombre_factura?: string;
         cedula_factura?: string;
@@ -10,12 +10,13 @@ export interface Facturacabecera {
         direccion_factura?: string;
         correo_factura?: string;
         fecha_factura?: string;
-        total_factura?: number;
+        total_factura?: string;
         tipo_pago_factura?: string;
         estado_factura?: string;
-        facturadetallefk?: Facturadetalle[];
-        eventofk?: Evento;
-        usuariofk?: Usuario;
+        facturadetallefk?: string [];
+        eventofk?: string;
+        //Relacion con la tabla evento
+        usuariofk?: string;
 
 
 

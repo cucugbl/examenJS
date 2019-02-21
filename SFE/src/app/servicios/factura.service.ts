@@ -4,7 +4,9 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Facturadetalle } from '../interfaces/Facturadetalle';
 import { Facturacabecera } from '../interfaces/Facturacabecera';
+import { FacturacabeceraAGUARDAR } from '../interfaces/FacturacabeceraAGUARDAR';
 import { FacturadetalleAGUARDAR } from '../interfaces/FacturadetalleAGUARDAR';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,9 @@ import { FacturadetalleAGUARDAR } from '../interfaces/FacturadetalleAGUARDAR';
 export class FacturaService {
   nombreModeloFD = '/Facturadetalle';
   nombreModeloFC = '/FacturaCabecera';
-  sailsurl='http://localhost:1337';
+  sailsurl = 'http://localhost:1337';
   constructor(private readonly _httpClient: HttpClient) { }
-  
+
   findAllDetallesFactura(): Observable<Facturadetalle[]> {
     // OBSERVABLE
     const eventos$ = this._httpClient
@@ -41,14 +43,24 @@ export class FacturaService {
       .pipe(map(e => <Facturacabecera>e)); // Castear
   }
 
-  createfacturaDetalle(facturadetalle:FacturadetalleAGUARDAR):Observable<Facturadetalle>{
-    return this._httpClient.post(this.sailsurl+this.nombreModeloFD,facturadetalle).pipe(map(r => <Facturadetalle>r)); 
+  createfacturaDetalle(facturadetalle: FacturadetalleAGUARDAR): Observable<Facturadetalle> {
+    return this._httpClient.post(this.sailsurl + this.nombreModeloFD, facturadetalle).pipe(map(r => <Facturadetalle>r));
 
   }
-  createfacturaCabecera(facturaCabecera:Facturacabecera):Observable<Facturacabecera>{
-    return this._httpClient.post(this.sailsurl+this.nombreModeloFC,facturaCabecera).pipe(map(r => <Facturacabecera>r)); 
+  createfacturaCabecera(facturaCabecera: FacturacabeceraAGUARDAR): Observable<Facturacabecera> {
+    return this._httpClient.post(this.sailsurl + this.nombreModeloFC, facturaCabecera).pipe(map(r => <Facturacabecera>r));
 
   }
 
+  updateOneByIdFacturaCabecera(facturaCabeceraAacrualizar: FacturacabeceraAGUARDAR) {
+
+    const url = this.sailsurl + this.nombreModeloFC
+      + '/' + facturaCabeceraAacrualizar.id;
+
+    return this._httpClient
+      .put(url, facturaCabeceraAacrualizar)
+      .pipe(map(u => <Facturacabecera>u)); // Castear
+
+  }
 
 }

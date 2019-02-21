@@ -11,22 +11,24 @@ module.exports = {
 
     nombre_usuario: {
       type: 'string',
-    //  required: true
+     required: true
     },
 
     correo_usuario: {
       type: 'string',
-      // isEmail: true,
-      //unique: true,
-       //required: true,
+       isEmail: true,
+      unique: true,
+       required: true,
     },
 
     password_usuario: {
       type: 'string',
-      //required: true,
+      required: true,
       
-      //minLength:2,
-      //maxLength:16
+      minLength:2,
+      maxLength:16,
+      regex: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(.*[\W]){1,})(?!.*\s)(?=(?:.*[a-z]){1})\S{4,}$/i,
+      
 
     },
 

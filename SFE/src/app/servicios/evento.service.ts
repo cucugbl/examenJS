@@ -41,6 +41,15 @@ export class EventoService {
 
     return medicamentos$;
   }
+
+
+  findAllEventosMedicamentos(): Observable<Eventomedicamento[]> {
+    // OBSERVABLE
+    return this._httpClient
+      .get(this.sailsurl + this.nombremodeloEventoMedicamento)
+      .pipe(map(m => <Eventomedicamento[]>m)); // Castear
+  }
+
   deleteByIdMedicamento(id: number | string): Observable<Medicamento> {
     const medicamento$ = this._httpClient
       .delete(this.sailsurl + this.nombreModeloMedicamento + '/' + id)
@@ -48,6 +57,13 @@ export class EventoService {
 
     return medicamento$
   }
+
+  deleteByIdEventoMedicamento(id: number | string): Observable<Eventomedicamento> {
+    return this._httpClient
+      .delete(this.sailsurl + this.nombremodeloEventoMedicamento + '/' + id)
+      .pipe(map(m => <Eventomedicamento>m));
+  }
+
 
 
   crearEventoMedicamento(em: EventoMedicamentoAGUARDAR): Observable<Eventomedicamento> {

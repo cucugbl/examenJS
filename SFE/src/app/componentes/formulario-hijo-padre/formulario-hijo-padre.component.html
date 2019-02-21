@@ -1,11 +1,27 @@
 <form #formularioCrearHijo="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearHijo)">
 
 
+
+    <p *ngIf="formularioCrearHijo.invalid">
+  
+      <ngb-alert [dismissible]="false" *ngIf="controlNombre.touched && controlNombre.invalid">
+        <strong>Errores Composicion! </strong> <span>{{controlNombre.errors | json}}</span>
+      </ngb-alert>
+
+      <ngb-alert [dismissible]="false" *ngIf="controlComposicion.touched && controlComposicion.invalid">
+        <strong>Errores Composicion! </strong> <span>{{controlComposicion.errors | json}}</span>
+      </ngb-alert>
+  
+  
+    </p>
+  
+
+  
   <div>
     <span class="ui-float-label">
 
       <input size="30" pInputText id="nombre" required type="text" name="nombre"
-        [(ngModel)]="medicamentoObtenido.nombre_medicamento" #inputNombre="ngModel">
+        [(ngModel)]="medicamentoObtenido.nombre_medicamento" #controlNombre="ngModel">
 
       <label for="nombre">Nombre Medicamento</label>
     </span>
@@ -16,7 +32,7 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="gramos" required type="text" name="gramos"
+      <input size="30" pInputText id="gramos" required type="number" name="gramos" min="0"
         [(ngModel)]="medicamentoObtenido.gramos_ingerir" #inputNombre="ngModel">
 
       <label for="gramos">gramos a ingerir</label>
@@ -28,7 +44,7 @@
     <span class="ui-float-label">
 
       <input size="30" pInputText id="composicion" required type="text" name="composicion"
-        [(ngModel)]="medicamentoObtenido.composicion" #inputNombre="ngModel">
+        [(ngModel)]="medicamentoObtenido.composicion" #controlComposicion="ngModel">
 
       <label for="composicion">composicion</label>
     </span>
@@ -47,7 +63,7 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="caducidad" required type="text" name="caducidad"
+      <input size="30" pInputText id="caducidad" required type="date" name="caducidad"
         [(ngModel)]="medicamentoObtenido.fecha_caducidad" #inputNombre="ngModel">
 
       <label for="caducidad">fecha caducidad</label>
@@ -57,7 +73,7 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="pastillas" required type="text" name="pastillas"
+      <input size="30" pInputText id="pastillas" required type="number" name="pastillas" min="0"
         [(ngModel)]="medicamentoObtenido.numero_pastillas" #inputNombre="ngModel">
 
       <label for="pastillas">numero de pastillas</label>

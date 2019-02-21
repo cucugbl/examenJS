@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Paciente } from '../interfaces/Paciente';
 import { Medicamento } from '../interfaces/Medicamento';
+import { MedicamentoAGUARDAR } from '../interfaces/MedicamentoAGUARDAR';
+import { PacienteAGUARDAR } from '../interfaces/PacienteAGUARDAR';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +42,10 @@ export class PacientesMedicamentosService {
       .pipe(map(m => <Medicamento>m)); // Castear
   }
 
-  crearPaciente(paciente: Paciente): Observable<Paciente> {
-    const pacienteAguardar: Paciente = paciente;
+  crearPaciente(paciente: PacienteAGUARDAR): Observable<Paciente> {
+    
 
-    return this._httpClient.post(this.sailsurl + this.nombreModeloPaciente, pacienteAguardar)
+    return this._httpClient.post(this.sailsurl + this.nombreModeloPaciente, paciente)
       .pipe(
         map(
           respuesta => <Paciente>respuesta
@@ -79,7 +81,7 @@ export class PacientesMedicamentosService {
       .pipe(map(r => <Paciente>r)); // Castear
   }
 
-  crearMedicamentoPaciente(medicamento: Medicamento): Observable<Medicamento> {
+  crearMedicamentoPaciente(medicamento: MedicamentoAGUARDAR): Observable<Medicamento> {
     return this._httpClient.post(this.sailsurl + this.nombreModeloMedicamento, medicamento)
       .pipe(
         map(

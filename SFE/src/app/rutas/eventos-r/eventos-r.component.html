@@ -1,6 +1,23 @@
 <h3>Eventos</h3>
 
 
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-3"></div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon">
+        <i class="pi pi-search"></i>
+      </span>
+      <input type="text" pInputText placeholder="Busque eventos por nombre de evento" [(ngModel)]="busqueda" name="busqueda">
+      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar" (click)="buscarUsuariosEnToltales()"></button>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-3"></div>
+</div>
+<br><br>
+
+
+
 <div class="ui-g-12 ui-lg-10">
   <p-table [value]="eventos">
     <ng-template pTemplate="header">
@@ -18,7 +35,7 @@
         <td>{{evento.fecha_evento}}</td>
         <td>
 
-          
+
 
 
           <a [routerLink]="['/home','ver-evento',evento.id]">
@@ -33,7 +50,7 @@
             <button pButton type="button" icon="pi" class="ui-button-rounded ui-button-rounded"
               label="Gestion Facturas"></button>
           </a>
-          
+
         </td>
       </tr>
     </ng-template>

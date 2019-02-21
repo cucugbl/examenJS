@@ -1,11 +1,32 @@
 <form #formularioCrearPadre="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearPadre)">
 
 
+  <p *ngIf="formularioCrearPadre.invalid">
+
+    <ngb-alert [dismissible]="false" *ngIf="controlNombre.touched && controlNombre.invalid">
+      <strong>Errores Nombre! </strong> <span>{{controlNombre.errors | json}}</span>
+    </ngb-alert>
+
+    <ngb-alert [dismissible]="false" *ngIf="controlApellido.touched && controlApellido.invalid">
+      <strong>Errores Apellido! </strong> <span>{{controlApellido.errors | json}}</span>
+    </ngb-alert>
+
+    <ngb-alert [dismissible]="false" *ngIf="controlSeguro.touched && controlSeguro.invalid">
+      <strong>Errores Seguro! </strong> <span>Ingrese si o no. Ej: si</span>
+    </ngb-alert>
+
+
+
+  </p>
+
+
+
+
   <div>
     <span class="ui-float-label">
 
       <input size="30" pInputText id="nombre" required type="text" name="nombre"
-        [(ngModel)]="pacienteObtenido.nombre_paciente" #inputNombre="ngModel">
+        [(ngModel)]="pacienteObtenido.nombre_paciente" #controlNombre="ngModel">
 
       <label for="nombre">Nombre Paciente</label>
     </span>
@@ -17,7 +38,7 @@
     <span class="ui-float-label">
 
       <input size="30" pInputText id="apellido" required type="text" name="apellido"
-        [(ngModel)]="pacienteObtenido.apellido_paciente" #inputNombre="ngModel">
+        [(ngModel)]="pacienteObtenido.apellido_paciente" #controlApellido="ngModel">
 
       <label for="apellido">apellido paciente</label>
     </span>
@@ -27,7 +48,7 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="fecha" required type="text" name="fecha"
+      <input size="30" pInputText id="fecha" required type="date" name="fecha"
         [(ngModel)]="pacienteObtenido.fecha_naciemiento_paciente" #inputNombre="ngModel">
 
       <label for="fecha">fecha nacimiento paciente</label>
@@ -37,18 +58,19 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="hijos" required type="text" name="hijos"
+      <input size="30" pInputText id="hijos" required type="number" name="hijos" min="0"
         [(ngModel)]="pacienteObtenido.hijos_paciente" #inputNombre="ngModel">
 
       <label for="hijos">hijos paciente</label>
     </span>
   </div>
   <br>
+
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="seguro" required type="text" name="seguro"
-        [(ngModel)]="pacienteObtenido.seguro_paciente" #inputNombre="ngModel">
+      <input size="30" pInputText id="seguro" required type="text" name="seguro" pattern="si|no"
+        [(ngModel)]="pacienteObtenido.seguro_paciente" #controlSeguro="ngModel">
 
       <label for="seguro">seguro paciente</label>
     </span>
@@ -60,5 +82,5 @@
 
   </button>
   <button pButton type="reset" class="ui-button-danger" label="Borrar Todo">
-    </button>
+  </button>
 </form>

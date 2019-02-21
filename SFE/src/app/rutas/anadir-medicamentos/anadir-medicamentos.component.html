@@ -7,9 +7,9 @@
     <span>
       <div class="ui-g ui-fluid ">
         <div class="ui-lg-4">
-         
+
         </div>
-        <div class="ui-lg-4">
+        <div class="bg-danger text-white">
           <h6>Ya esta registrado ese hijo </h6>
         </div>
       </div>
@@ -24,7 +24,6 @@
   <div class="col-md-4">
 
 
-
     <p-table>
       <ng-template pTemplate="header">
 
@@ -37,7 +36,22 @@
       </ng-template>
     </p-table>
 
-    <h4>Fecha del evento: {{eventoObtenido.fecha_evento}}</h4>
+    <h5>Fecha del evento: {{eventoObtenido.fecha_evento}}</h5>
+
+
+
+
+    <div>
+
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+
+    </div>
+
+
+
+
 
   </div>
 
@@ -80,7 +94,7 @@
   </div>
   <div class="col-md-4">
 
-    <p>Materias disponibles para el usuario logueado</p>
+    <p>Medicamentos disponibles para el usuario logueado</p>
     <div>
       <br>
       <select id="selectMateria">
@@ -91,10 +105,10 @@
     <br>
     <div>
       <span class="ui-float-label">
-  
+
         <input size="30" pInputText id="precio" required type="text" name="precio"
           [(ngModel)]="eventoMedicamentoAAgregar.precio_base" #inputNombre="ngModel">
-  
+
         <label for="precio">Precio Base</label>
       </span>
     </div>
@@ -112,3 +126,4 @@
 
   </div>
 </div>
+

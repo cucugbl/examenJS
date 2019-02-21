@@ -3,6 +3,7 @@ import { PacientesMedicamentosService } from 'src/app/servicios/pacientes-medica
 import { ActivatedRoute, Router } from '@angular/router';
 import { Paciente } from 'src/app/interfaces/Paciente';
 import { Medicamento } from 'src/app/interfaces/Medicamento';
+import { MedicamentoAGUARDAR } from 'src/app/interfaces/MedicamentoAGUARDAR';
 @Component({
   selector: 'app-anadir-medicamentos-a-paciente',
   templateUrl: './anadir-medicamentos-a-paciente.component.html',
@@ -11,6 +12,7 @@ import { Medicamento } from 'src/app/interfaces/Medicamento';
 export class AnadirMedicamentosAPacienteComponent implements OnInit {
   paciente: Paciente;
   medicamento:Medicamento={};
+  medicamentoAguardar:MedicamentoAGUARDAR={};
 
   constructor(private readonly _PacientesService: PacientesMedicamentosService,
     private readonly _route: ActivatedRoute, private _routerN: Router) { }
@@ -41,10 +43,21 @@ export class AnadirMedicamentosAPacienteComponent implements OnInit {
 
 
   crearMedicamento(medicamentoRecibido:Medicamento){
+    
     const idPaciente=this.paciente.id
-    medicamentoRecibido.pacientefk=this.paciente.id+"";
+    
+    
+    this.medicamentoAguardar.pacientefk=this.paciente.id+"";
+    this.medicamentoAguardar.nombre_medicamento=medicamentoRecibido.nombre_medicamento;
+    this.medicamentoAguardar.gramos_ingerir=medicamentoRecibido.gramos_ingerir;
+    this.medicamentoAguardar.composicion=medicamentoRecibido.composicion;
+    this.medicamentoAguardar.usado_para=medicamentoRecibido.usado_para;
+    this.medicamentoAguardar.fecha_caducidad=medicamentoRecibido.fecha_caducidad;
+    this.medicamentoAguardar.numero_pastillas=medicamentoRecibido.numero_pastillas;
+    
+    
 
-    this._PacientesService.crearMedicamentoPaciente(medicamentoRecibido).subscribe(
+    this._PacientesService.crearMedicamentoPaciente(this.medicamentoAguardar).subscribe(
       (medicamento: Medicamento) => {
         //console.log(usuarioActualizado);
         const idMedicamento=medicamento.id;

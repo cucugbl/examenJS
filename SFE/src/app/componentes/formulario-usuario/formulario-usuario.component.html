@@ -2,16 +2,27 @@
 
   <p *ngIf="formularioActualizarUsuario.invalid">
 
-      <ngb-alert [dismissible]="false">
-          <strong>Mensaje! </strong> <span>Algunos campos son invalidos</span>
-        </ngb-alert>
-       
-    
+    <ngb-alert [dismissible]="false" *ngIf="controlNombre.touched && controlNombre.invalid">
+      <strong>Errores Nombre! </strong> <span>{{controlNombre.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="caontrolPass.touched && caontrolPass.invalid">
+      <strong>Errores Password! </strong> <span>Requiere almenos una letra minuscula, mayuscula, un numero, un caracter
+        especial </span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlEmail.touched && controlEmail.invalid">
+      <strong>Errores Email! </strong> <span>{{controlEmail.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlFecha.touched && controlFecha.invalid">
+      <strong>Errores Fecha! </strong> <span>{{controlFecha.errors | json}}</span>
+    </ngb-alert>
+
+
   </p>
+  <br>
   <div>
     <span class="ui-float-label">
       <input id="nombre" type="text" size="30" pInputText required type="text" name="nombre"
-        [(ngModel)]="usuario.nombre_usuario" required #inputNombre="ngModel">
+        [(ngModel)]="usuario.nombre_usuario" required #controlNombre="ngModel">
       <label for="nombre">Nombre Usuario</label>
 
     </span>
@@ -19,25 +30,26 @@
   <br>
   <div>
     <span class="ui-float-label">
-      <input id="username" name="username" size="30" required pInputText type="email" [(ngModel)]="usuario.correo_usuario"
-        #inputNombre="ngModel">
+      <input id="username" name="username" size="30" required pInputText email type="email"
+        [(ngModel)]="usuario.correo_usuario" #controlEmail="ngModel">
       <label for="username">Correo</label>
     </span>
   </div>
   <br>
   <div>
     <span class="ui-float-label">
-      <input id="password" maxlength="16" minlength="2" name="password" size="30" required pInputText type="password" [(ngModel)]="usuario.password_usuario"
-        #inputNombre="ngModel">
+      <input id="password" maxlength="16" minlength="4" name="password" size="30" required pInputText type="password"
+        [(ngModel)]="usuario.password_usuario" #caontrolPass="ngModel"
+        pattern="^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(.*[\W]){1,})(?!.*\s)(?=(?:.*[a-z]){1})\S{4,}$">
       <label for="password">Password</label>
     </span>
   </div>
   <br>
   <div>
-      <label for="fecha">Fecha de nacimiento</label>
+    <label for="fecha">Fecha de nacimiento</label>
     <span class="ui-float-label">
-      <input id="fecha" name="fecha" type="date" size="30" required pInputText [(ngModel)]="usuario.fecha_nacimiento_usuario"
-        #inputNombre="ngModel">
+      <input id="fecha" name="fecha" type="date" size="30" required pInputText
+        [(ngModel)]="usuario.fecha_nacimiento_usuario" #controlFecha="ngModel">
 
     </span>
   </div>

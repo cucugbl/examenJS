@@ -39,7 +39,7 @@
       <div>
         <span class="ui-float-label">
 
-          <input size="30" class="selcls" pInputText id="precio" required type="text" name="precio"
+          <input size="30" class="selcls" pInputText id="precio" required type="number" name="precio" min="0"
             [(ngModel)]="eventoMedicamentoSeleccionado.precio_base" #inputNombre="ngModel">
 
           <label for="precio">Precio Acordado</label>
@@ -49,7 +49,7 @@
       <div>
         <span class="ui-float-label">
 
-          <input size="30" pInputText id="precio" required type="text" name="precio"
+          <input size="30" pInputText id="precio" required type="number" name="precio" min="0"
             [(ngModel)]="facturadetalle.cantidad" #inputNombre="ngModel">
 
           <label for="precio">Cantidad</label>

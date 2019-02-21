@@ -1,9 +1,9 @@
-import { Usuario } from './usuario';
+
 import { Medicamento } from './Medicamento';
 
-export class Paciente{
+export class PacienteAGUARDAR{
     
-    usuariofk?: Usuario;
+    usuariofk?: string;
     medicamentofk?: Medicamento[];
     createdAt?: number;
     updatedAt?: number;

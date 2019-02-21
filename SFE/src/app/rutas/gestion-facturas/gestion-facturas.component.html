@@ -1,9 +1,47 @@
 <p>
   Gestionar Facturas
 </p>
+<p>
+  Lista de facturas
+</p>
 <br>
 
-<p-table [value]="facturaCabecera">
+
+
+
+
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-3"></div>
+  <div class="ui-g-12 ui-md-6">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon">
+        <i class="pi pi-search"></i>
+      </span>
+      <input type="text" pInputText placeholder="Busque facturas por nombre de cliente registrado en la app" [(ngModel)]="busqueda" name="busqueda">
+      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar" (click)="buscarFacturasEnToltalesPorcliente()"></button>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-3"></div>
+</div>
+<br><br>
+
+
+
+
+<div>
+  <br>
+  <label for="selectarregloEstadosDeCompra">Filtrar por estado: </label>
+  <select style="color: hsl(207, 51%, 60%)" [(ngModel)]="pruebaSrt"
+    (ngModelChange)='estadoSeleccionadoComboBox($event)' id="selectarregloEstadosDeCompra">
+    <option value={{m}} *ngFor="let m of arregloEstadosDeCompra">{{m}}</option>
+  </select>
+
+</div>
+
+
+
+
+<p-table [value]="facturaCabeceraPorUsuario">
   <ng-template pTemplate="header">
     <!-- tr -> table row  -->
     <tr>

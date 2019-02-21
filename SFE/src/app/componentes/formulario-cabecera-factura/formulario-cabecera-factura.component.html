@@ -2,12 +2,39 @@
 
 <form #formularioCrearCabecera="ngForm" novalidate (submit)="emitirFormularioValido(formularioCrearCabecera)">
 
+  <p *ngIf="formularioCrearCabecera.invalid">
+
+    <ngb-alert [dismissible]="false" *ngIf="controlNombre.touched && controlNombre.invalid">
+      <strong>Errores Nombre! </strong> <span>{{controlNombre.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="caontrolCedula.touched && caontrolCedula.invalid">
+      <strong>Errores CEdula! </strong> <span>cedula incorrecta</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlTelefono.touched && controlTelefono.invalid">
+      <strong>Errores Telefono! </strong> <span>Ej: 0998065192</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlDireccion.touched && controlDireccion.invalid">
+      <strong>Errores Direccion! </strong> <span>{{controlDireccion.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlCorreo.touched && controlCorreo.invalid">
+      <strong>Errores Correo! </strong> <span>{{controlCorreo.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlFecha.touched && controlFecha.invalid">
+      <strong>Errores Fecha! </strong> <span>{{controlFecha.errors | json}}</span>
+    </ngb-alert>
+    <ngb-alert [dismissible]="false" *ngIf="controlFecha.touched && controlFecha.invalid">
+      <strong>Errores Fecha! </strong> <span>{{controlFecha.errors | json}}</span>
+    </ngb-alert>
+
+
+  </p>
+
 
   <div>
     <span class="ui-float-label">
 
       <input size="30" pInputText id="nombre" required type="text" name="nombre"
-        [(ngModel)]="facturaCabeceraObtenida.nombre_factura" #inputNombre="ngModel">
+        [(ngModel)]="facturaCabeceraObtenida.nombre_factura" #controlNombre="ngModel">
 
       <label for="nombre">Nombre factura</label>
     </span>
@@ -17,8 +44,8 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="cedula" required type="text" name="cedula"
-        [(ngModel)]="facturaCabeceraObtenida.cedula_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="cedula" required type="text" name="cedula" maxlength="10" minlength="10"
+        [(ngModel)]="facturaCabeceraObtenida.cedula_factura" #caontrolCedula="ngModel">
 
       <label for="cedula">Cedula</label>
     </span>
@@ -29,10 +56,10 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="telefono" required type="text" name="telefono"
-        [(ngModel)]="facturaCabeceraObtenida.telefono_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="telefono" required type="text" name="telefono"  maxlength="10" minlength="10"
+        [(ngModel)]="facturaCabeceraObtenida.telefono_factura" #controlTelefono="ngModel">
 
-      <label for="telefono">Telefono</label>
+      <label for="telefono">Telefono Celular</label>
     </span>
   </div>
 
@@ -41,19 +68,21 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="direccion" required type="text" name="direccion"
-        [(ngModel)]="facturaCabeceraObtenida.direccion_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="direccion" required type="text" name="direccion"  minlength="10"
+        [(ngModel)]="facturaCabeceraObtenida.direccion_factura" #controlDireccion="ngModel">
 
       <label for="direccion">direccion</label>
     </span>
   </div>
 
+
+
   <br>
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="correo" required type="text" name="correo"
-        [(ngModel)]="facturaCabeceraObtenida.correo_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="correo" required email type="email" name="correo"
+        [(ngModel)]="facturaCabeceraObtenida.correo_factura" #controlCorreo="ngModel">
 
       <label for="correo">correo</label>
     </span>
@@ -63,8 +92,8 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="fecha" required type="text" name="fecha"
-        [(ngModel)]="facturaCabeceraObtenida.fecha_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="fecha" required type="date" name="fecha"
+        [(ngModel)]="facturaCabeceraObtenida.fecha_factura" #controlFecha="ngModel">
 
       <label for="fecha">fecha factura</label>
     </span>
@@ -74,33 +103,15 @@
   <div>
     <span class="ui-float-label">
 
-      <input size="30" pInputText id="total" required type="text" name="total"
-        [(ngModel)]="facturaCabeceraObtenida.total_factura" #inputNombre="ngModel">
+      <input size="30" pInputText id="total" required type="number" name="total"
+        [(ngModel)]="facturaCabeceraObtenida.total_factura" #controlTotal="ngModel">
 
       <label for="total">total factura</label>
     </span>
   </div>
-  <br>
-  <div>
-    <span class="ui-float-label">
 
-      <input size="30" pInputText id="tipopago" required type="text" name="tipopago"
-        [(ngModel)]="facturaCabeceraObtenida.tipo_pago_factura" #inputNombre="ngModel">
-
-      <label for="tipopago">tipo de pago</label>
-    </span>
-  </div>
 
   <br>
-  <div>
-    <span class="ui-float-label">
-
-      <input size="30" pInputText id="estado" required type="text" name="estado"
-        [(ngModel)]="facturaCabeceraObtenida.estado_factura" #inputNombre="ngModel">
-
-      <label for="estado">estado de pago a factura</label>
-    </span>
-  </div>
 
   <button type="submit" label={{nombreBoton}} class="ui-button-success" pButton [disabled]="formularioCrearCabecera.invalid">
 

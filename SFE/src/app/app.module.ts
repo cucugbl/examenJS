@@ -35,6 +35,8 @@ import { ListaDeFacturasComponent } from './rutas/lista-de-facturas/lista-de-fac
 import { VerDetalleFacturaComponent } from './rutas/ver-detalle-factura/ver-detalle-factura.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormularioCabeceraFacturaComponent } from './componentes/formulario-cabecera-factura/formulario-cabecera-factura.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { FormularioCabeceraFacturaComponent } from './componentes/formulario-cab
     AnadirItemComponent,
     ListaDeFacturasComponent,
     VerDetalleFacturaComponent,
-    FormularioCabeceraFacturaComponent
+    FormularioCabeceraFacturaComponent,
+    
   ],
   imports: [
     BrowserModule, ButtonModule,CalendarModule, PasswordModule,
@@ -70,6 +73,9 @@ import { FormularioCabeceraFacturaComponent } from './componentes/formulario-cab
     TableModule,
     PanelModule,
     BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpmKbXXyQa7UpK3zPlIxLiw-1VswWidhs'
+    })
     
   ],
   providers: [],

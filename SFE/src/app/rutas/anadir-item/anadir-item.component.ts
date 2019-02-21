@@ -139,9 +139,10 @@ export class AnadirItemComponent implements OnInit {
 
   anadirItem(){
     this.facturadetalle.item=this.nombreItem;
-    this.facturadetalle.precio=this.eventoMedicamentoSeleccionado.precio_base;
+    this.facturadetalle.precio=+this.eventoMedicamentoSeleccionado.precio_base;
     this.facturadetalle.eventomedicamentofk=this.eventoMedicamentoSeleccionado.id;
     this.facturadetalle.facturacabecerafk=this.facturaCabereraObtenida.id;
+    this.facturadetalle.total=Number(this.facturadetalle.cantidad)*Number(this.facturadetalle.precio)
     this._facturaService.createfacturaDetalle(this.facturadetalle).subscribe(
       (fac:Facturadetalle)=>{
         console.log(fac);

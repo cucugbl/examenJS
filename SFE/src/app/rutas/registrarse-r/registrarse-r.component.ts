@@ -22,43 +22,23 @@ export class RegistrarseRComponent implements OnInit {
 
   ngOnInit() {
   }
-  irLogin() {
-
-    var usuario: Usuario = {
-
-      nombre_usuario: this.nombreReg,
-      correo_usuario: this.correoReg,
-      password_usuario: this.passReg,
-      fecha_nacimiento_usuario: this.fecha_nacimientoReg,
-      // rol: 2
-
-
-    }
-
-
-    this._userService.registrarUsuario(usuario).subscribe(
-      (usuario: Usuario) => {
-        const url = [''];
-        this._router.navigate(url);
-        alert('usuario registrado')
-        this._router.navigate(['/login']);
-        //alert(`usuario creado: Hola ${usuario.nombre}`)
-      }, (error) => { console.log("Error:", error); }
-    );
-    // this._userService.agregarUsuario(usuario);
-
-
-  }
+  
   registrarUsuario(usuarioRecibido: Usuario) {
     this._userService.registrarUsuario(usuarioRecibido).subscribe(
       (usuario: Usuario) => {
+        this._userService.addRol(usuario.id,"2").subscribe(
+          (resp)=>{
+            alert('usuario registrado y ' +resp)
+            this._router.navigate(['/login']);
+          }
+        );
         
-        alert('usuario registrado')
-        this._router.navigate(['/login']);
         //alert(`usuario creado: Hola ${usuario.nombre}`)
       }, (error) => { console.log("Error:", error); }
     );
   }
+
+
   irLoginCancel() {
     this._router.navigate(['/login']);
   }

@@ -10,8 +10,8 @@ import { Rol } from 'src/app/interfaces/Rol';
   providedIn: 'root'
 })
 export class AuthService {
-  usuarioLogueado: Usuario = {id:"1"};
-  rolesDeUsuarioLogueado: Rol[] = [{ id: "1" },{id:"2"}]
+  usuarioLogueado: Usuario = {};
+  rolesDeUsuarioLogueado: Rol[] = [{id:"1"},{id:"2"}];
 
   constructor(private readonly _httpClient: HttpClient) { }
 
@@ -40,18 +40,18 @@ export class AuthService {
 
   esAdministrador(): boolean {
     
-   return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "1".valueOf());
+   return  this.rolesDeUsuarioLogueado.some((rol) => rol.id == "1");
     
   }
 
   esUsuario(): boolean {
-    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "2".valueOf());
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id == "2");
   }
   esCajero(): boolean {
-    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "3".valueOf());
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id == "3");
   }
   esCliente(): boolean {
-    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id.valueOf() == "4".valueOf());
+    return  this.rolesDeUsuarioLogueado.some((rol) => rol.id == "4");
   }
 
 

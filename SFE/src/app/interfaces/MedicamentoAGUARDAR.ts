@@ -1,6 +1,6 @@
 import { Eventomedicamento } from './Eventomedicamento';
-import { Paciente } from './Paciente';
-export interface Medicamento {
+
+export interface MedicamentoAGUARDAR {
       id?:string;
       nombre_medicamento?: string;
       gramos_ingerir?: string;
@@ -8,7 +8,7 @@ export interface Medicamento {
       usado_para?: string;
       fecha_caducidad?: string;
       numero_pastillas?: string;
-      pacientefk?: Paciente;
+      pacientefk?: string;
       eventomedicamentofk?: Eventomedicamento[];
       createdAt?:number;
       updatedAt?:number;
